@@ -12,8 +12,19 @@ function App() {
   const [usuario, setUsuario] = useState({});
 
   useEffect(() => {
+    console.log("PRIMER useEffect");
 
-    const usuarioStorage = localStorage.getItem('usuario');
+    let usuarioStorage = JSON.parse(localStorage.getItem('usuario'));
+
+    setUsuario(usuarioStorage);
+
+  }, []);
+
+  useEffect(() => {
+
+    console.log("useEffect desde el App.jsx");
+
+    // cada actualización de usuario, se guardará en el almacenamiento
     localStorage.setItem("usuario", JSON.stringify(usuario));
 
   }, [usuario]);
@@ -48,7 +59,7 @@ function App() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
 
-      <h1>React - useContext</h1>
+      <h1>React - useContext y más hooks</h1>
 
       <div className="card">
 

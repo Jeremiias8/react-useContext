@@ -13,6 +13,8 @@ import { Arrays } from '../components/arrays/Arrays';
 import { useContext } from 'react';
 import { PruebaContext } from '../context/PruebaContext';
 
+import { UseIdComponent } from '../components/useId/UseIdComponent';
+
 export const Routing = () => {
 
   const {usuario, setUsuario} = useContext(PruebaContext);
@@ -77,6 +79,10 @@ export const Routing = () => {
                   <a><NavLink to="/arrays">Arrays</NavLink></a>
                 </li>
               </ul>
+
+              <div className='m-2 p-2 bg-dark rounded-2'>
+                <a><NavLink to="/useid">useId</NavLink></a>
+              </div>
             </nav>
 
           </header>
@@ -93,6 +99,7 @@ export const Routing = () => {
               <Route path="/nick" element={<Login />} />
               <Route path="/contacto" element={<Contacto />} />
               <Route path="/arrays" element={<Arrays />} />
+              <Route path="/useid" element={<UseIdComponent />} />
               <Route path="*" element={<div>
                 <h1>Página no encontrada</h1>
               </div>} />
