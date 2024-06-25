@@ -1,28 +1,32 @@
+import { useState } from "react";
 
 export const useMayus = (texto) => {
 
-    const textoMayuscula = (valor = "") => {
+    const [text, setText] = useState("jeremiasweb"); 
 
-        return texto.toUpperCase();
+    const textomayusculas = () => {
+
+        setText(texto.toUpperCase());
         
     }
 
-    const textoMinuscula = () => {
+    const textominusculas = () => {
 
-        return texto.toLowerCase();
+        setText(texto.toLowerCase());
 
     }
 
     const concatenar = (agregado) => {
 
-        return texto + agregado;
+        setText(texto + agregado);
 
     }
 
-    return (
-        textoMayuscula,
-        textoMinuscula,
+    return {
+        estado: text,
+        textomayusculas,
+        textominusculas,
         concatenar
-    );
+    };
 
 }

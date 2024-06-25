@@ -14,6 +14,8 @@ import { useContext } from 'react';
 import { PruebaContext } from '../context/PruebaContext';
 
 import { UseIdComponent } from '../components/useId/UseIdComponent';
+import { MiForm } from '../components/custom/MiForm';
+import { MiUser } from '../components/custom/MiUser';
 
 export const Routing = () => {
 
@@ -83,7 +85,16 @@ export const Routing = () => {
               <div className='m-2 p-2 bg-dark rounded-2'>
                 <a><NavLink to="/useid">useId</NavLink></a>
               </div>
+
             </nav>
+
+            <div className='m-2 p-2 bg-dark rounded-2'>
+                <a><NavLink to="/formulario">miForm</NavLink></a>
+            </div>
+
+            <div className='m-2 p-2 bg-dark rounded-2'>
+                <a><NavLink to="/usuario">miUser</NavLink></a>
+            </div>
 
           </header>
 
@@ -100,6 +111,8 @@ export const Routing = () => {
               <Route path="/contacto" element={<Contacto />} />
               <Route path="/arrays" element={<Arrays />} />
               <Route path="/useid" element={<UseIdComponent />} />
+              <Route path="/formulario" element={<MiForm />} />
+              <Route path="/usuario" element={<MiUser />} />
               <Route path="*" element={<div>
                 <h1>Página no encontrada</h1>
               </div>} />

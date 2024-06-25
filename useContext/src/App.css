@@ -104,3 +104,15 @@ button {
   margin: 3rem auto;
   padding: 3rem;
 }
+
+.enviado {
+  background-color: green;
+  border-radius: 1rem;
+  color: white;
+  padding: 1rem;
+  -webkit-border-radius: 1rem;
+  -moz-border-radius: 1rem;
+  -ms-border-radius: 1rem;
+  -o-border-radius: 1rem;
+  cursor: pointer;
+}
