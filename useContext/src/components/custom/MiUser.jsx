@@ -1,24 +1,13 @@
 
-import React, { useEffect, useState } from 'react'
+import { useState } from "react";
+import { useAjax } from "../hooks/useAjax";
 
 export const MiUser = () => {
 
-    const [usuario, setUsuario] = useState({
-        datos: null,
-        cargando: true
-    });
+    const [url, setUrl] = useState("https://reqres.in/api/users/1");
 
-    const fetchUser = async (url) => {
-
-        const request = await fetch(url);
-        const {data} = await request.json();
-
-        console.log(data);
-
-        setUsuario({
-            datos: data
-        });
-    }
+    const {datos, cargando} = useAjax(url);
+    // const {fetchUserData} = useAjax();
 
     const peticionId = (e) => {
 
@@ -26,25 +15,19 @@ export const MiUser = () => {
         let id = parseInt(e.target.value);
 
         // con cada cambio en el input, ejecuta la petición, obteniendo un value diferente relacionado con el id
-        let url = "https://reqres.in/api/users/" + id;
+        // let url = "https://reqres.in/api/users/" + id;
         // alert(e.target.id.value);
 
-        fetchUser(url);
+        setUrl("https://reqres.in/api/users/" + id);
     }
-
-    useEffect(() => {
-
-        fetchUser("https://reqres.in/api/users/1");
-
-    }, []);
 
   return (
     <div>
         <h1>Mi user:</h1>
         <p>Data del user:</p>
-        <p>{usuario.cargando ? "Cargando..." : ""}</p>
+        <p>{cargando ? "Cargando..." : ""}</p>
 
-        <p>{usuario?.datos?.first_name} {usuario?.datos?.last_name}</p>
+        <p>{datos?.first_name} {datos?.last_name}</p>
 
         <input type="number" 
             name='id'
